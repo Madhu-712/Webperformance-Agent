@@ -1,13 +1,29 @@
 # Webperformance-Agent
 
 ## Overview
-The Webperformance-Agent is an AI-powered tool designed to act as an expert web performance analyst. It leverages the Gemini-3-Flash LLM to interact with a browser environment, analyze critical web performance metrics (such as FCP, FID, LCP, and CLS), and provide deep insights into user experience and responsiveness. This agent is capable of simulating various user interactions and capturing performance data to help optimize web applications.
+The Webperformance-Agent is an AI-powered tool designed to act as an expert web performance analyst. It leverages the Gemini-3-Flash LLM to interact with a browser environment, analyze critical web performance metrics (such as FCP, FID, LCP, and CLS), and provide deep insights into user experience and responsiveness. 
+Core Web Vitals directly influence business success by improving user retention, increasing conversion rates, and boosting search engine visibility. 
+FCP (First Contentful Paint): Reduces initial bounce rates by giving users immediate visual feedback that the site is responsive and loading.
+LCP (Largest Contentful Paint): Directly correlates with higher conversion rates and sales by delivering the most important content before users lose interest.
+FID (First Input Delay): Enhances customer trust and interaction success by ensuring the site reacts instantly to their first click or tap.
+CLS (Cumulative Layout Shift): Prevents lost revenue and "accidental clicks" by keeping page elements stable and predictable during the user journey. 
+
+Business Performance Benchmarks:
+Conversion Lift: A one-second improvement in load time can increase retail conversions by up to 8.4%.
+Retention: Mobile users are 53% more likely to abandon a site if it takes longer than 3 seconds to load.
+SEO Advantage: Sites meeting "Good" thresholds (e.g., LCP ≤ 2.5s) are prioritized by Google's ranking algorithm. 
+
+ It also captures screenshots, and simulates various network conditions to generate detailed performance reports. The repository provides a structured framework for developers to orchestrate automated testing through a specialized agentic workflow. This system effectively bridges the gap between advanced AI reasoning and technical browser diagnostics to help optimize digital platforms.
+
 
 ## Architecture
-The agent's architecture is centered around the `LlmAgent` from `google.adk.agents`. It uses a large language model (Gemini-2.5-Flash) for its analytical capabilities and decision-making. For interacting with the web browser, it utilizes an `MCPToolset` (Managed Code Program Toolset) which connects to `chrome-devtools-mcp`. This allows the agent to control browser actions and gather detailed performance data.
+The agent's architecture is centered around the `LlmAgent` from `google.adk.agents`. It uses a large language model (Gemini-3-Flash) for its analytical capabilities and decision-making. For interacting with the web browser, it utilizes an `MCPToolset` (Model Context Protocol Toolset) which connects to `chrome-devtools-mcp`. This allows the agent to control browser actions and gather detailed performance data.
 
 **Conceptual Infographic for Architecture:**
-Imagine a diagram with three main components:
+<img width="2752" height="1536" alt="unnamed" src="https://github.com/user-attachments/assets/7f916d97-2b8e-4e8b-b214-610ba3fea30a" />
+
+
+Here's a diagram with three main components:
 1.  **"Gemini-3-Flash LLM (Brain)"**: Represented as a cloud or a brain icon.
     *   *Input*: User Commands (e.g., "Analyze webpage X", "Take a screenshot of Y").
     *   *Output*: Actions/Analysis requests.
@@ -75,7 +91,10 @@ To get started with the Webperformance-Agent, follow these steps:
     *(Specific execution command for the agent would be needed, e.g., `python -m chromedevagent.agent` or a command provided by the `adk` framework)*
     ```bash
     # Example command (may vary based on ADK setup)
-    python chromedevagent/agent.py 
+    python chromedevagent/agent.py
+
+    # for adk setup
+    Adk web or Adk run chromedevagent
     ```
     *Ensure `npx chrome-devtools-mcp` is accessible in your PATH for the `MCPToolset` to function correctly.*
 
